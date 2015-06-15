@@ -7,7 +7,7 @@ import javax.swing.DefaultListModel
 import javax.swing.ListSelectionModel
 import com.intellij.ui.components.JBList
 
-public class RemovePackageAction(val packages: DefaultListModel,
+public class RemovePackageAction(val packages: DefaultListModel<String>,
                                  val list: JBList) : AnAction("Remove package", null, AllIcons.General.Remove) {
 
     public override fun actionPerformed(e: AnActionEvent?): Unit {

@@ -16,7 +16,7 @@ import java.awt.BorderLayout
 
 class ProgramParamsPanel(modules: Array<Module>) : JPanel() {
     private var executableComponent: JTextField
-    private var moduleComboBox: JComboBox
+    private var moduleComboBox: JComboBox<Module>
     private var programParametersComponent : RawCommandLineEditor
     private var workingDirectoryComponent : TextFieldWithBrowseButton
     private var environmentVariables : EnvironmentVariablesComponent

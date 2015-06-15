@@ -9,7 +9,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.actionSystem.PlatformDataKeys
 import javax.swing.DefaultListModel
 
-public class AddPackageAction(val packages: DefaultListModel) :
+public class AddPackageAction(val packages: DefaultListModel<String>) :
                             AnAction("Add package", null, AllIcons.General.Add) {
 
     public override fun actionPerformed(e: AnActionEvent?): Unit {

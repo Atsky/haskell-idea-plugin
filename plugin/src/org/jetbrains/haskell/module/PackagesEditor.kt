@@ -17,7 +17,7 @@ import javax.swing.event.ListDataEvent
 import java.util.Enumeration
 
 public class PackagesEditor(state: ModuleConfigurationState, val project : Project) : ModuleElementsEditor(state) {
-    val packages = DefaultListModel()
+    val packages = DefaultListModel<String>()
 
     protected override fun createComponentImpl(): JComponent {
         val resultPanel = JPanel(BorderLayout())
