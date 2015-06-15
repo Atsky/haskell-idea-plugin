@@ -10,7 +10,7 @@ import org.jetbrains.cabal.highlight.ErrorMessage
 public class VersionValue(node: ASTNode) : ASTWrapperPsiElement(node), Checkable, PropertyValue {
 
     public override fun check(): List<ErrorMessage> {
-        if (!(this : PsiElement).getText()!!.matches("([0-9]+(\\-[0-9a-zA_Z]+)*\\.)*([0-9]+(\\-[0-9a-zA_Z]+)*)".toRegex())) return listOf(ErrorMessage(this, "invalid version", "error"))
+        if (!this.getText().matches("([0-9]+(\\-[0-9a-zA_Z]+)*\\.)*([0-9]+(\\-[0-9a-zA_Z]+)*)".toRegex())) return listOf(ErrorMessage(this, "invalid version", "error"))
         return listOf()
     }
 }

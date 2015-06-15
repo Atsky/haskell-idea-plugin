@@ -61,15 +61,14 @@ public class VersionConstraint(node: ASTNode) : ASTWrapperPsiElement(node), Chec
 
     public fun isSimple(): Boolean = !(getVersionValue() endsWith '*')
 
-    public fun getComparator(): String? = COMPARATORS firstOrNull { it.equals((this : PsiElement).getFirstChild()!!.getText()!!) }
+    public fun getComparator(): String? = COMPARATORS firstOrNull { it.equals(this.getFirstChild()!!.getText()!!) }
 
-    public fun getVersion(): String = (this : PsiElement).getLastChild()!!.getText()!!
+    public fun getVersion(): String = this.getLastChild()!!.getText()!!
 
     public fun getVersionValue(): String = (getVersion().replace("(\\-[0-9a-zA-Z]+)+\\.".toRegex(), "\\.")).replace("(\\-[0-9a-zA-Z]+)+$".toRegex(), "")
 
     public override fun check(): List<ErrorMessage> {
-        val comparator = getComparator()
-        if (comparator == null) return listOf()
+        val comparator = getComparator() ?: return listOf()
         val version = getVersion()
         if (getParent()!! is CabalVersionField) {
             if ((comparator == ">=") && (version.matches("[0-9]+\\.[0-9]+".toRegex()))) return listOf()

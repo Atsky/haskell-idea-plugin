@@ -177,6 +177,6 @@ public class JSONConverter {
             switchInfo(json, { throw RuntimeException(throwMsg) }, cases)
 
         private fun switchInfoOrNull<R: ParseResult>(json: JSONObject, cases: InfoSwitch<R>.() -> Unit): R? =
-            switchInfo(json, { null: R? }, cases)
+            switchInfo(json, { null }, cases)
     }
 }

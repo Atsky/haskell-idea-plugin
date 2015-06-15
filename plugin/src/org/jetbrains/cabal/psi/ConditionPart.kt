@@ -12,7 +12,7 @@ import java.util.ArrayList
 public class ConditionPart(node: ASTNode) : ASTWrapperPsiElement(node) {
 
     public fun checkBrackets(): List<ErrorMessage> {
-        if (((this: PsiElement).getFirstChild()!!.getText() == "(") != ((this: PsiElement).getLastChild()!!.getText() == ")")) {
+        if ((this.getFirstChild()!!.getText() == "(") != (this.getLastChild()!!.getText() == ")")) {
             return listOf(ErrorMessage(this, "close bracked missing", "error", isAfterNodeError = true))
         }
         //return PsiTreeUtil.getChildrenOfTypeAsList(this, javaClass<ConditionPart>()) flatMap { it.checkBrackets() }
