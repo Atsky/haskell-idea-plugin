@@ -117,7 +117,7 @@ public class GhcModi(val project: Project, val settings: HaskellSettings) : Proj
                         break
                     }
                     val result = String(char, 0, size)
-                    val split = result.splitBy(OSUtil.newLine, limit = -1)
+                    val split = result.splitBy(OSUtil.newLine, limit = 0)
                     if (lines.isEmpty()) {
                         lines.add(split[0])
                     } else {
